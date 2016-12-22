@@ -30,11 +30,11 @@ def read_temp():
         return temp_c, temp_f
 
 #figure out why all of my indents are crap
-	 #    data = {}
-		# data['temp_c'] = temp_c
-		# data['sensor'] = "weatherpi"
-		# json_data = json.dumps(data)
-	 #    kinesis.put_record(StreamName="thermometer", Data=json_data, PartitionKey="weatherpi")
+	    data = {}
+		data['temp_c'] = temp_c
+		data['sensor'] = "weatherpi"
+		json_data = json.dumps(data)
+	    # kinesis.put_record(StreamName="thermometer", Data=json_data, PartitionKey="weatherpi")
 
 while True:
 	print(read_temp())	
