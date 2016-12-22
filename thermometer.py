@@ -17,7 +17,7 @@ def read_temp_raw():
 
 def	read_temp():
 	lines = read_temp_raw()
-	while lines[0].strip()[-3:] != 'YES'
+	while lines[0].strip()[-3:] != 'YES':
 		time.sleep(0.2)
 		lines = read_temp_raw()
 	equals_pos = lines[1].find('t')
@@ -30,4 +30,3 @@ def	read_temp():
 while True:
 	print(read_temp)
 	time.sleep(1)
-	
