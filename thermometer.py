@@ -33,7 +33,7 @@ def read_temp():
     data = {}
     data['temp_c'] = temp_c
     data['sensor'] = "weatherpi"
-    data['time'] = datetime.datetime.now()
+    data['time'] = (datetime.now(), default=json_serial)
     json_data = json.dumps(data)
 
     kinesis.put_record(StreamName="thermometer", Data=json_data, PartitionKey="weatherpi")
