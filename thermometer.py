@@ -2,6 +2,7 @@ import os
 import glob
 import time
 import boto3
+import json
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -29,9 +30,9 @@ def read_temp():
         temp_f = temp_c * 9.0 / 5.0 + 32.0
 
     data = {}
-	data['temp_c'] = temp_c
-	data['sensor'] = "weatherpi"
-	json_data = json.dumps(data)
+    data['temp_c'] = temp_c
+    data['sensor'] = "weatherpi"
+    json_data = json.dumps(data)
 
     # kinesis.put_record(StreamName="thermometer", Data=json_data, PartitionKey="weatherpi")
 
