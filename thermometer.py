@@ -35,7 +35,7 @@ def read_temp():
     data['sensor'] = "weatherpi"
     json_data = json.dumps(data)
 
-    kinesis.put_record(StreamName="thermometer", Data=json_data, PartitionKey="weatherpi")
+    #kinesis.put_record(StreamName="thermometer", Data=json_data, PartitionKey="weatherpi")
 
     return temp_c, temp_f
 
