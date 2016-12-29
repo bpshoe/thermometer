@@ -1,9 +1,6 @@
 import os
 import glob
 import time
-import boto3
-import json
-import datetime
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -11,7 +8,6 @@ os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
-kinesis = boto3.client('kinesis')
 
 def read_temp_raw():
     f = open(device_file, 'r')
