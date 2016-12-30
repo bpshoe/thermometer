@@ -165,6 +165,7 @@ time.sleep(2)
 loopCount = 0
 while True:
 	temp = read_temp()
-	myAWSIoTMQTTClient.publish("sdk/test/Python", temp, 1)
+	print(temp.temp_c)
+	#myAWSIoTMQTTClient.publish("sdk/test/Python", temp, 1)
 	loopCount += 1
 	time.sleep(1)
