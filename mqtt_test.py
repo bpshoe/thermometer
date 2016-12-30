@@ -164,7 +164,7 @@ time.sleep(2)
 # Publish to the same topic in a loop forever
 loopCount = 0
 while True:
-	print(read_temp())
-	#myAWSIoTMQTTClient.publish("sdk/test/Python", temp, 1)
+	sensor_out=read_temp()	
+	myAWSIoTMQTTClient.publish("sdk/test/Python", "Temp: " + str(sensor_out[1]), 1)
 	loopCount += 1
 	time.sleep(1)
