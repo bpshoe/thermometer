@@ -165,6 +165,6 @@ time.sleep(2)
 loopCount = 0
 while True:
 	sensor_out=read_temp()	
-	myAWSIoTMQTTClient.publish("sdk/test/Python", "Temp: " + str(sensor_out[1]), 1)
+	myAWSIoTMQTTClient.publish("sdk/test/Python", "C: " + str(sensor_out[0]) + " F: " + str(sensor_out[1]), 1)
 	loopCount += 1
 	time.sleep(1)
