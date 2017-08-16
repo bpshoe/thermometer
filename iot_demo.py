@@ -148,7 +148,7 @@ time.sleep(2)
 
 
 
-ifile = open(‘~/steamboat.csv’, “rb”)
+ifile = open('~/steamboat.csv', "rb")
 reader = csv.reader(ifile)
  
 rownum = 0
