@@ -29,7 +29,7 @@ import csv
 
 # Custom MQTT message callback
 def customCallback(client, userdata, message):
-	print("Received a new message: ")
+    print("Received a new message: ")
 	print(message.payload)
 	print("from topic: ")
 	print(message.topic)
