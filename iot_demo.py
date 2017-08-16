@@ -22,6 +22,8 @@ import time
 import getopt
 import os
 import glob
+import csv
+ 
 
 
 
@@ -138,9 +140,21 @@ myAWSIoTMQTTClient.connect()
 myAWSIoTMQTTClient.subscribe("sdk/test/Python", 1, customCallback)
 time.sleep(2)
 
-# Publish to the same topic in a loop forever
-loopCount = 0
-while True:	
-	myAWSIoTMQTTClient.publish("sdk/test/Python", "New Message " + str(loopCount), 1)
-	loopCount += 1
+# # Publish to the same topic in a loop forever
+# loopCount = 0
+# while True:	
+
+
+
+
+
+ifile = open(‘~/steamboat.csv’, “rb”)
+reader = csv.reader(ifile)
+ 
+rownum = 0
+
+for row in reader
+	print row 
+	myAWSIoTMQTTClient.publish("sdk/test/Python", row , 1)
 	time.sleep(1)
+	ifile.close()
