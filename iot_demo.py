@@ -152,6 +152,7 @@ time.sleep(2)
 
 with open('steamboat.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
+    temp = []
     for row in readCSV:
         temp = row[1]
         myAWSIoTMQTTClient.publish("sdk/volcano/demo", temp, 1)
