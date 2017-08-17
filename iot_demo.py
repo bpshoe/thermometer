@@ -22,6 +22,7 @@ import time
 import getopt
 import os
 import glob
+import csv
 
 
 
@@ -147,4 +148,10 @@ time.sleep(2)
 # 	time.sleep(1)
 
 #publish to mqtt topic
-myAWSIoTMQTTClient.publish("sdk/volcano/demo", "New Message " + str(loopCount), 1)
+
+
+with open('~/steamboat.csv') as csvfile:
+    readCSV = csv.reader(csvfile, delimiter=',')
+    for row in readCSV:
+        temp = row[1]
+        myAWSIoTMQTTClient.publish("sdk/volcano/demo", temp, 1)
