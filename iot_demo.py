@@ -22,14 +22,12 @@ import time
 import getopt
 import os
 import glob
-import csv
- 
 
 
 
 # Custom MQTT message callback
 def customCallback(client, userdata, message):
-    print("Received a new message: ")
+	print("Received a new message: ")
 	print(message.payload)
 	print("from topic: ")
 	print(message.topic)
@@ -137,24 +135,16 @@ myAWSIoTMQTTClient.configureMQTTOperationTimeout(5)  # 5 sec
 
 # Connect and subscribe to AWS IoT
 myAWSIoTMQTTClient.connect()
-myAWSIoTMQTTClient.subscribe("sdk/test/Python", 1, customCallback)
+myAWSIoTMQTTClient.subscribe("sdk/volcano/demo", 1, customCallback)
 time.sleep(2)
+
 
 # # Publish to the same topic in a loop forever
 # loopCount = 0
 # while True:	
+# 	myAWSIoTMQTTClient.publish("sdk/volcano/demo", "New Message " + str(loopCount), 1)
+# 	loopCount += 1
+# 	time.sleep(1)
 
-
-
-
-
-ifile = open('~/steamboat.csv', "rb")
-reader = csv.reader(ifile)
- 
-rownum = 0
-
-for row in reader
-	print row 
-	myAWSIoTMQTTClient.publish("sdk/test/Python", row , 1)
-	time.sleep(1)
-	ifile.close()
+#publish to mqtt topic
+myAWSIoTMQTTClient.publish("sdk/volcano/demo", "New Message " + str(loopCount), 1)
