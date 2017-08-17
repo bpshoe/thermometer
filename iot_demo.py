@@ -150,7 +150,7 @@ time.sleep(2)
 #publish to mqtt topic
 
 
-with open('~/steamboat.csv') as csvfile:
+with open('steamboat.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     for row in readCSV:
         temp = row[1]
