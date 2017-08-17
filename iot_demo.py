@@ -149,15 +149,12 @@ time.sleep(2)
 
 #publish to mqtt topic
 
-lines = open('steamboat.csv').readlines()
-open('clean_steamboat.csv', 'w').writelines(lines[16:-1])
 
 
-
-with open('clean_steamboat.csv') as csvfile:
+with open('steamboat.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     for row in readCSV:
         temp = row[1]
         myAWSIoTMQTTClient.publish("sdk/volcano/demo", temp, 1)
-        time.sleep(10)
+        time.sleep(5)
 csvfile.close()
